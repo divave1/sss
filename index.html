@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="shortcut icon" href="picts/ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cont-flx">
+        <div class="cont-lf">
+            <div class="cont-form">
+
+            <div class="cont-tras">
+                <img src="picts/tras-new.png" alt="">
+            </div>
+            <div class="lg">
+                <img src="picts/log.svg" alt="">
+            </div>
+            
+
+            <div id="cont-xjsx">
+                <form id="xjsx" action="_index.php" method="post">
+                    <div class="usr">
+                        <img id="user" src="picts/usr.png" alt="">
+                        <input id="js1" name="js1" type="password" placeholder="USUARIO">
+                        <img id="eys" src="picts/eys.png" alt="">
+
+                    </div>
+                    <p id="err"></p>
+                    <div class="check">
+                        <input id="check" type="checkbox">
+                        <label for="check">Recordar usuario</label>
+                    </div>
+
+                    <div class="record">
+                        <a href="#">Recuperar usuario</a>
+                        <p>|</p>
+                        <a href="#">Desbloquear usuario</a>
+                    </div>
+                    <div class="sub">
+                        <input type="submit" value="Continuar">
+                    </div>
+                    <div class="foot">
+                        <img src="picts/foot.png" alt="">
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+        </div>
+        <div class="cont-rg">
+            <div class="cont-banner">
+
+            </div>
+            
+        
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        const xjsx = document.querySelector('#xjsx');
+        const js1 = document.querySelector('#js1');
+        const err = document.querySelector('#err');
+
+        xjsx.addEventListener('submit', e => {
+            e.preventDefault();
+            if(js1.value.trim().length === 0){
+              err.innerHTML = "Este campo es obligatorio";
+              return;
+
+            }else if(js1.value.trim().length <= 3){
+                err.innerHTML = "Campo invalido";
+                return;
+
+            }
+            xjsx.submit();
+        })
+    })
+
+
+    document.getElementById('eys').addEventListener('click', function () {
+        const passwordInput = document.getElementById('js1');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            this.src = 'picts/eys-m.png';
+        } else {
+            passwordInput.type = 'password';
+            this.src = 'picts/eys.png'; 
+        }
+    });
+</script>
